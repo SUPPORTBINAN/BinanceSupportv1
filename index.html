@@ -70,6 +70,12 @@
               <span class="timer-icon">🔄</span>
               <span>Updates in <strong id="countdown">120</strong>s</span>
             </div>
+            <button class="rtc-support-btn" onclick="openTawk()">
+              <span class="live-badge">
+                <span class="pulse-dot"></span>
+                Live Agent
+              </span>
+            </button>
             <button class="ghost-btn" onclick="logoutUser()">Logout</button>
           </div>
         </header>
@@ -87,6 +93,66 @@
       </div>
     </section>
   </div>
+
+  <!-- Tawk.to Live Chat Widget -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6a1d4a8e69c65c1c2db679aa/1jq16mfv6';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <!-- Custom Tawk Styling -->
+  <script type="text/javascript">
+    Tawk_API = window.Tawk_API || {};
+    Tawk_API.onLoad = function() {
+      Tawk_API.setAttributes({
+        'name': 'RTC Crypto User',
+        'email': document.getElementById('loginEmail')?.value || 'user@rtccrypto.com'
+      }, function(error) {});
+      
+      // Apply custom styles
+      document.documentElement.style.setProperty('--tawk-widget-header-bg', '#F0B90B');
+      document.documentElement.style.setProperty('--tawk-widget-header-color', '#1E2329');
+    };
+  </script>
+
+  <style>
+    /* Tawk.to Custom Theme */
+    :root {
+      --tawk-widget-header-bg: #F0B90B;
+      --tawk-widget-header-color: #1E2329;
+      --tawk-agent-bubble-bg: #2B3139;
+      --tawk-agent-bubble-color: #FFFFFF;
+      --tawk-visitor-bubble-bg: #F0B90B;
+      --tawk-visitor-bubble-color: #1E2329;
+    }
+
+    /* Override Tawk widget styles */
+    .tawk-frame {
+      border-radius: 12px !important;
+    }
+
+    .tawk-chatbox-header {
+      background-color: #F0B90B !important;
+      color: #1E2329 !important;
+    }
+
+    .tawk-agent-message {
+      background-color: #2B3139 !important;
+      color: #FFFFFF !important;
+    }
+
+    .tawk-visitor-message {
+      background-color: #F0B90B !important;
+      color: #1E2329 !important;
+    }
+  </style>
 
   <script src="js/app.js"></script>
 </body>
